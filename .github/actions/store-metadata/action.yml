@@ -1,0 +1,6 @@
+name: 'Store Metadata in MongoDB'
+description: 'A GitHub Action to store metadata.json content in MongoDB.'
+inputs: {}
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

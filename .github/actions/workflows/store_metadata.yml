@@ -1,0 +1,22 @@
+name: Store Metadata in MongoDB
+
+on:
+  push:
+    branches:
+      - main
+      - '**' # Run on all branches
+
+jobs:
+  store-metadata:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Run Store Metadata Action
+      uses: ./.github/actions/store-metadata
+      env:
+        MONGO_URI: ${{ secrets.MONGO_URI }}
+        DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
+        COLLECTION_NAME: ${{ secrets.COLLECTION_NAME }}
