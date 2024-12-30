@@ -20,10 +20,10 @@ from utils.get_experiment_by_name import get_experiment_by_name
 from utils.get_mongo_client import get_mongo_client
 from utils.insert_file_to_collection import insert_json_to_mongodb
 
-host = os.getenv("HOST")
-port = os.getenv("PORT")
+
+mongo_uri = os.getenv('MONGO_URI')
 database_name = os.getenv("DATABASE_NAME")
-current_collection_name = os.getenv("CURRENT_COLLECTION_NAME")
+current_collection_name = os.getenv("COLLECTION_NAME")
 
 
 def extract_metadata_from_pos_experiment(absolute_path_to_experiment, metadata=None):
@@ -79,7 +79,7 @@ if __name__ == "__main__":
 
     experiment_name = get_experiment_title(absolute_path_to_experiment)
 
-    client = get_mongo_client(host, port)
+    client = get_mongo_client(mongo_uri)
 
     experiment = get_experiment_by_name(client, database_name, current_collection_name, experiment_name)
 
