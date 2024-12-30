@@ -42,8 +42,8 @@ def extract_metadata_from_pos_experiment(absolute_path_to_experiment, metadata=N
     repository_url = get_repository_url(absolute_path_to_experiment)
     metadata["repository_url"] = repository_url if repository_url else None
 
-    documentation_url = get_repository_documentation_url(absolute_path_to_experiment)
-    metadata["documentation_url"] = documentation_url if documentation_url else None
+    # documentation_url = get_repository_documentation_url(absolute_path_to_experiment)
+    # metadata["documentation_url"] = documentation_url if documentation_url else None
 
     contributors = get_experiment_contributors(absolute_path_to_experiment)
     metadata["contributors"] = contributors if contributors else None
