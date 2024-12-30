@@ -12,5 +12,5 @@ COPY requirements.txt /action/requirements.txt
 # Install dependencies
 RUN pip install --no-cache-dir -r /action/requirements.txt
 
-# Default command
-CMD ["python", "/action/main.py"]
+# Default command to run the script, but allow passing arguments
+ENTRYPOINT ["python", "/action/main.py"]
