@@ -1,5 +1,8 @@
 FROM python:3.10-slim
 
+# Install git and other necessary packages
+RUN apt-get update && apt-get install -y git && apt-get clean
+
 # Set up the working directory for the action
 WORKDIR /action
 
