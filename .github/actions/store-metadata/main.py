@@ -27,6 +27,8 @@ current_collection_name = os.getenv("COLLECTION_NAME")
 
 
 def extract_metadata_from_pos_experiment(absolute_path_to_experiment, metadata=None):
+    logger.info(f"Extracting metadata from experiment in directory: {absolute_path_to_experiment}")
+
     now = date.today().isoformat()
     if metadata is None:
         # we need to create this field only when the metadata is created
