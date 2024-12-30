@@ -1,6 +1,12 @@
-name: 'Store Metadata in MongoDB'
-description: 'A GitHub Action to store metadata.json content in MongoDB.'
-inputs: {}
+name: "Store Metadata in MongoDB"
+description: "Extract metadata and store it in MongoDB"
+inputs:
+  target_directory:
+    description: "The directory containing the code to process"
+    required: true
+    default: "/github/workspace"
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - "${{ inputs.target_directory }}"

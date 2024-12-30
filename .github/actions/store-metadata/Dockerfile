@@ -1,16 +1,16 @@
 FROM python:3.10-slim
 
-# Set up the working directory
-WORKDIR /app
+# Set up the working directory for the action
+WORKDIR /action
 
-# Copy files into the container, maintaining directory structure
-COPY extract /app/extract
-COPY utils /app/utils
-COPY main.py /app/main.py
-COPY requirements.txt /app/requirements.txt
+# Copy the action's code (preserving directory structure)
+COPY extract /action/extract
+COPY utils /action/utils
+COPY main.py /action/main.py
+COPY requirements.txt /action/requirements.txt
 
 # Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r /action/requirements.txt
 
-# Set the default command
-CMD ["python", "main.py", "./"]
+# Default command
+CMD ["python", "/action/main.py"]
