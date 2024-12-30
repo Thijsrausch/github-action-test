@@ -1,3 +1,2 @@
 pymongo
 loguru
-dotenv

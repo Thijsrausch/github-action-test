@@ -1,7 +1,6 @@
 import sys
 from datetime import date
 from loguru import logger
-from dotenv import load_dotenv
 import os
 
 from extract.generic_information.get_experiment_contributors import get_experiment_contributors
@@ -20,8 +19,6 @@ from utils.get_absolute_path import get_absolute_path
 from utils.get_experiment_by_name import get_experiment_by_name
 from utils.get_mongo_client import get_mongo_client
 from utils.insert_file_to_collection import insert_json_to_mongodb
-
-load_dotenv()
 
 host = os.getenv("HOST")
 port = os.getenv("PORT")
