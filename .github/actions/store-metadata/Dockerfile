@@ -15,8 +15,9 @@ COPY requirements.txt /action/requirements.txt
 # Install dependencies
 RUN pip install --no-cache-dir -r /action/requirements.txt
 
-# Configure Git safe directory
-RUN git config --global --add safe.directory /github/workspace
+# Copy the entrypoint script
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
-# Default command to run the script, but allow passing arguments
-ENTRYPOINT ["python", "/action/main.py"]
+# Use the entrypoint script as the container's default command
+ENTRYPOINT ["/entrypoint.sh"]
